@@ -1,5 +1,5 @@
 CREATE DATABASE Mogwards;
-
+DROP DATABASE Mogwards;
 USE Mogwards;
 
 CREATE TABLE Professor(
@@ -19,9 +19,9 @@ idade int
 CREATE TABLE aula(
 fkBruxo int,
 fkProfessor int,
-idAula int auto_increment,
+idAula int,
 dtAula DATETIME,
-	primary key(fkBruxo, fkProfessor, idAula),
+	constraint pkAssociativa primary key(fkBruxo, fkProfessor, idAula),
 	constraint fkBruxo foreign key (fkBruxo)
 		REFERENCES bruxo(idBruxo),
 	constraint fkProfessor foreign key (fkProfessor)
@@ -29,7 +29,22 @@ dtAula DATETIME,
 );
 
 CREATE TABLE casa(
-
+idCasa int primary key,
+nome VARCHAR(45),
+trofeu int,
+ponto int,
+fkRepresentante int,
+	constraint fkRepresentante foreign key (fkRepresentante)
+		REFERENCES bruxo(idBruxo)
 );
 
-INSERT INTO bruxo VALUES
+ALTER TABLE bruxo ADD COLUMN fkCasa int;
+ALTER TABLE bruxo ADD constraint fkCasa foreign key (fkCasa)
+	REFERENCES casa(idCasa);
+    
+describe professor;
+
+INSERT INTO professor VALUES
+	();
+    
+describe bruxo
