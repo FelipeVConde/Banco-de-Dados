@@ -7,7 +7,7 @@ idProfessor int primary key auto_increment,
 nome VARCHAR(45),
 materia VARCHAR(45),
 idade int,
-salario DECIMAL(6,2)
+salario DECIMAL(7,2)
 );
 
 CREATE TABLE bruxo(
@@ -43,8 +43,20 @@ ALTER TABLE bruxo ADD constraint fkCasa foreign key (fkCasa)
 	REFERENCES casa(idCasa);
     
 describe professor;
-
 INSERT INTO professor VALUES
+	(null, 'Francisco Lachowski', 'Defesa Contra Artes das Trevas', 37, 8700.00),
+    (null, 'Jordan Barrett', 'Transfiguração', 33, 11500.00),
+    (null, 'Marlon Teixeira', 'Herbologia', 39, 6200.00),
+    (null, "Sean O'Pry", 'Feitiços', 45, 15900.80);
+    
+describe casa;
+INSERT INTO casa VALUES
 	();
     
-describe bruxo
+describe bruxo;
+INSERT INTO bruxo VALUES
+	();
+    
+describe aula;
+INSERT INTO aula VALUES
+	();
